@@ -1,0 +1,34 @@
+<!-- modal_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Opciones"
+        android:textAlignment="center"
+        android:textSize="24dp" />
+
+    <Button
+        android:id="@+id/btnPrueba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ponerme a prueba" />
+
+    <Button
+        android:id="@+id/btnVer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver fichas" />
+
+    <Button
+        android:id="@+id/btnCerrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar" />
+
+</LinearLayout>

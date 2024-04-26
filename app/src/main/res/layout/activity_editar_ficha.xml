@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+
+        <EditText
+            android:id="@+id/editTextAnverso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Anverso"
+            android:minLines="3" />
+
+        <EditText
+            android:id="@+id/editTextEnverso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextAnverso"
+            android:layout_marginBottom="16dp"
+            android:hint="Enverso"
+            android:minLines="3" />
+
+        <EditText
+            android:id="@+id/editTextPistas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextEnverso"
+            android:layout_marginBottom="16dp"
+            android:hint="Palabras claves/Pistas"
+            android:minLines="3" />
+
+        <Button
+            android:id="@+id/buttonGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextPistas"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/oxfordBlue"
+            android:text="Guardar cambios" />
+
+        <Button
+            android:id="@+id/buttonCancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonGuardar"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/charcoal"
+            android:text="Cancelar" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
