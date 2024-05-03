@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="Anverso"
+            android:hint="@string/anverso"
             android:minLines="3" />
 
         <EditText
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editTextAnverso"
             android:layout_marginBottom="16dp"
-            android:hint="Enverso"
+            android:hint="@string/enverso"
             android:minLines="3" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/editTextEnverso"
             android:layout_marginBottom="16dp"
-            android:hint="Palabras claves/Pistas"
+            android:hint="@string/palabras_clave"
             android:minLines="3" />
 
         <Button
@@ -43,7 +43,7 @@
             android:layout_below="@id/editTextPistas"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/oxfordBlue"
-            android:text="Guardar cambios" />
+            android:text="@string/guardar_cambios" />
 
         <Button
             android:id="@+id/buttonCancelar"
@@ -52,7 +52,7 @@
             android:layout_below="@id/buttonGuardar"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/charcoal"
-            android:text="Cancelar" />
+            android:text="@string/cancelar" />
 
 
     </RelativeLayout>

@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">ProyectoCatedraDSM</string>
+    <string name="app_name">Quiz Quest</string>
+    <!-- Strings del proyecto -->
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="palabras_clave">Palabras claves/Pistas</string>
+    <string name="anverso">Anverso</string>
+    <string name="enverso">Enverso</string>
+    <string name="opciones">Opciones</string>
+    <string name="ponerme_a_prueba">Ponerme a prueba</string>
+    <string name="ver_fichas">Ver fichas</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="ninguna_tematica">No se encontro ninguna temática.</string>
 </resources>

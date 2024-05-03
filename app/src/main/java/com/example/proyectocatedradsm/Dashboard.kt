@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -63,10 +65,13 @@ class Dashboard : AppCompatActivity() {
             recyclerView.adapter = TematicaAdapter(tematicas, colorTematica)
             cursor.close()
         } else {
-            Toast.makeText(
+            /*Toast.makeText(
                 this, "No se encontro ninguna temática.",
                 Toast.LENGTH_LONG
-            ).show()
+            ).show()*/
+            val txtMensaje = findViewById<TextView>(R.id.txtMensaje)
+            txtMensaje.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
         }
 
         //
