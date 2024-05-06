@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -22,6 +23,8 @@ class TematicaAdapter(
         val textViewNombre: TextView = itemView.findViewById(R.id.textViewNombre)
         val textViewDescripcion: TextView = itemView.findViewById(R.id.textViewDescripcion)
         val cardView: CardView = itemView.findViewById(R.id.cardViewTematica)
+        val btnEditar: Button = itemView.findViewById(R.id.btnEditar)
+        val btnEliminar: Button = itemView.findViewById(R.id.btnEliminar)
     }
 
     private val coloresTematica = HashMap<Int, String>()
@@ -53,6 +56,21 @@ class TematicaAdapter(
 
         // Establecer el color de fondo del CardView de esta tarjeta
         holder.cardView.setCardBackgroundColor(colorInt)
+
+        //Botones
+        holder.btnEditar.setOnClickListener {
+            Toast.makeText(
+                holder.itemView.context,
+                "BTN EDITAR.", Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        holder.btnEliminar.setOnClickListener {
+            Toast.makeText(
+                holder.itemView.context,
+                "BTN ELIMINAR.", Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun modalOpciones(context: Context, tematica: Tematica) {

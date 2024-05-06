@@ -11,4 +11,6 @@
     <string name="ver_fichas">Ver fichas</string>
     <string name="cerrar">Cerrar</string>
     <string name="ninguna_tematica">No se encontro ninguna temática.</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

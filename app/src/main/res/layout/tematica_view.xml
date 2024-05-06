@@ -1,4 +1,5 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardViewTematica"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -29,5 +30,31 @@
             android:text="Descripción del Ticket"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
+
+        <!-- Botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEditar"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="3dp"
+                android:backgroundTint="@color/charcoal"
+                app:icon="@drawable/editar" />
+
+            <Button
+                android:id="@+id/btnEliminar"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="3dp"
+                android:backgroundTint="@color/charcoal"
+                android:gravity="center"
+                app:icon="@drawable/eliminar" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
