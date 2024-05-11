@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +39,7 @@ class EditarFichaActivity : AppCompatActivity() {
 
         val btnGuardar = findViewById<Button>(R.id.buttonGuardar)
         val btnCancelar = findViewById<Button>(R.id.buttonCancelar)
+        val btnRegresar = findViewById<ImageButton>(R.id.btnRegresar)
 
         btnGuardar.setOnClickListener {
             managerFichas!!.updateFicha(
@@ -56,6 +58,11 @@ class EditarFichaActivity : AppCompatActivity() {
         }
 
         btnCancelar.setOnClickListener {
+            val intent = Intent(this, Dashboard::class.java)//Cambiar a vista correspondiente
+            startActivity(intent)
+        }
+
+        btnRegresar.setOnClickListener {
             val intent = Intent(this, Dashboard::class.java)//Cambiar a vista correspondiente
             startActivity(intent)
         }
