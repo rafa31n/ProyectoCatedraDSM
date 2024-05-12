@@ -12,13 +12,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectocatedradsm.model.Tematicas
 
 class TematicaAdapter(
     private val tematicas: MutableList<Tematica>,
     private val colorTematica: String
 ) :
     RecyclerView.Adapter<TematicaAdapter.ViewHolder>() {
-
+    private var managerTematicas: Tematicas? = null
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewNombre: TextView = itemView.findViewById(R.id.textViewNombre)
         val textViewDescripcion: TextView = itemView.findViewById(R.id.textViewDescripcion)
@@ -70,6 +71,7 @@ class TematicaAdapter(
                 holder.itemView.context,
                 "BTN ELIMINAR.", Toast.LENGTH_SHORT
             ).show()
+            mostrarModalEliminar(holder.itemView.context, tematica)
         }
     }
 
@@ -93,7 +95,29 @@ class TematicaAdapter(
             }
             .show()
     }
+    private fun mostrarModalEliminar(context: Context, tematica: Tematica) {
+        AlertDialog.Builder(context)
+            .setTitle("Eliminar Temática")
+            .setMessage("¿Estás seguro de que quieres eliminar la temática ${tematica.nombre}?")
+            .setPositiveButton("Eliminar") { dialog, which ->
+                // Llama a la función para eliminar la temática
+              //  println("id de la cosa ${tematica.idTematica}")
+               eliminarTematica(context,tematica)
 
+            }
+            .setNegativeButton("Cancelar") { dialog, which ->
+                // No hacer nada, simplemente cerrar el diálogo
+                dialog.dismiss()
+            }
+            .show()
+    }
+    private fun eliminarTematica(context: Context, tematica: Tematica) {
+       val idTematica = tematica.idTematica ?: return // Si el ID es null, retorna sin hacer nada
+     //   println("El id de tematica= $idTematica")
+       // managerTematicas!!.deleteTematica(idTematica) // Usando el operador de llamada segura
+        notifyDataSetChanged()
+        Toast.makeText(context, "Temática ${tematica.nombre} eliminada.", Toast.LENGTH_SHORT).show()
+    }
     override fun getItemCount(): Int {
         return if (tematicas.isEmpty()) 1 else tematicas.size
     }
