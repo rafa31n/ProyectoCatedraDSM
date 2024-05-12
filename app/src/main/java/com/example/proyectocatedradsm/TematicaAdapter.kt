@@ -59,10 +59,13 @@ class TematicaAdapter(
 
         //Botones
         holder.btnEditar.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                "BTN EDITAR.", Toast.LENGTH_SHORT
-            ).show()
+            val intent = Intent(holder.itemView.context, EditarTematicaActivity::class.java)
+            intent.putExtra("nombre",tematica.nombre)
+            intent.putExtra("descripcion",tematica.descripcion)
+            intent.putExtra("color", tematica.color)
+            intent.putExtra("id", tematica.idTematica)
+
+            holder.cardView.context.startActivity(intent)
         }
 
         holder.btnEliminar.setOnClickListener {
@@ -80,7 +83,7 @@ class TematicaAdapter(
             .setTitle("Opciones para ${tematica.nombre}")
             .setMessage("¿Qué deseas hacer con esta temática?")
             .setPositiveButton("Ponerme a prueba") { dialog, which ->
-                val intent = Intent(context, EditarFichaActivity::class.java)
+                val intent = Intent(context, PracticarAcivity::class.java)
                 intent.putExtra("tematica_id", tematica.idTematica)
                 context.startActivity(intent)
             }

@@ -21,15 +21,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".EditarFichaActivity"
+            android:name=".EditarTematicaActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".CrearFicha"
+            android:exported="false" />
+
         <activity
             android:name=".FichasActivity"
             android:exported="false" />
         <activity
             android:name=".PracticarAcivity"
             android:exported="false" />
+
+        <activity
+            android:name=".EditarFichaActivity"
+            android:exported="false" />
+
+
+
     </application>
 
 </manifest>

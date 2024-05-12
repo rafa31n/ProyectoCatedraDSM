@@ -5,4 +5,9 @@
     <color name="oxfordBlue">#011936</color>
     <color name="charcoal">#465362</color>
     <color name="backgroungLogo">#dce6fe</color>
+    <color name="otravez">#e94450</color>
+    <color name="bien">#5ed730</color>
+    <color name="dificl">#8533a0</color>
+    <color name="facil">#4f77c1</color>
+
 </resources>

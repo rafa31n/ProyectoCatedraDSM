@@ -25,6 +25,8 @@ class Fichas(context: Context?) {
         val COL_ANVERSO = "anverso"
         val COL_ENVERSO = "enverso"
         val COL_PISTAS = "pistas"
+        val COL_REGISTRO = "resultados"
+
 
         //sentencia SQL para crear la tabla.
         val CREATE_TABLE_FICHAS = (
@@ -34,6 +36,7 @@ class Fichas(context: Context?) {
                         + COL_ANVERSO + " varchar(255) NOT NULL,"
                         + COL_ENVERSO + " varchar(255) NOT NULL,"
                         + COL_PISTAS + " varchar(255) NOT NULL,"
+                        + COL_REGISTRO +" varchar(255) NULL,"
                         + "FOREIGN KEY(id_tematica) REFERENCES tematicas (id_tematica));"
                 )
     }
@@ -50,6 +53,14 @@ class Fichas(context: Context?) {
         valores.put(Fichas.COL_ANVERSO, anverso)
         valores.put(Fichas.COL_ENVERSO, enverso)
         valores.put(Fichas.COL_PISTAS, pistas)
+        return valores
+    }
+
+    fun generarContentValuesRegistro(
+        registro: String?
+    ): ContentValues? {
+        val valores = ContentValues()
+        valores.put(Fichas.COL_IDTEMATICA, registro)
         return valores
     }
 
@@ -89,6 +100,19 @@ class Fichas(context: Context?) {
         )
     }
 
+    fun updateFichaResultados(
+        id_ficha: Int,
+        registros: String?
+
+    ) {
+        db!!.update(
+            TABLE_NAME_FICHAS, generarContentValuesRegistro(
+                registros
+            ),
+            "$COL_ID=?", arrayOf(id_ficha.toString())
+        )
+    }
+
     // Mostrar un registro particular
     /*fun searchProducto(id: Int): Cursor? {
         val columns = arrayOf(
@@ -109,6 +133,16 @@ class Fichas(context: Context?) {
         return db!!.query(
             TABLE_NAME_FICHAS, columns,
             null, null, null, null, "${Fichas.COL_ANVERSO} ASC"
+        )
+    }
+
+    fun searchFichasAllForTematica(id: Int?): Cursor? {
+        val columns = arrayOf(
+            COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_ENVERSO, COL_PISTAS
+        )
+        return db!!.query(
+            TABLE_NAME_FICHAS, columns,
+            "$COL_IDTEMATICA=?", arrayOf(id.toString()), null, null, "${Fichas.COL_ID} DESC"
         )
     }
 }

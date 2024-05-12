@@ -8,10 +8,143 @@
     tools:context=".PracticarAcivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PRUEBA"
+        android:text=""
+        android:textSize="24sp"
+        android:layout_margin="8dp"
+        android:drawableStart="@drawable/back"
+        android:clickable="true"
+        android:focusable="true"
+        />
+    <TextView
+        android:id="@+id/textAnverso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="93dp" />
+        tools:layout_editor_absoluteY="93dp"
+        android:layout_below="@+id/textViewBack"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/textAnverso"
+        android:visibility="gone"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/textEnverso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="93dp"
+        android:layout_below="@id/divider" />
+
+    <TextView
+        android:id="@+id/textPistas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="f"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="93dp"
+        android:layout_below="@id/textEnverso" />
+
+    <!-- LinearLayout para el TextView "Mostrar respuesta" -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/textMostrarPista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mostrar pistas"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@color/facil"
+            android:paddingVertical="10dp" />
+        <TextView
+            android:id="@+id/textMostrarRespuesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mostrar respuesta"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@android:color/black"
+            android:paddingVertical="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LinearLayout"
+            android:orientation="horizontal" android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textOtravez"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:background="@color/otravez"
+                android:textColor="@color/white"
+                android:text="Otra vez" />
+
+            <TextView
+                android:id="@+id/textDificil"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="10dp"
+                android:background="@color/dificl"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="Dificil" />
+
+            <TextView
+                android:id="@+id/textBien"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="10dp"
+                android:background="@color/bien"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="Bien" />
+
+            <TextView
+                android:id="@+id/textFacils"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="10dp"
+                android:background="@color/facil"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="Facil" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 </RelativeLayout>

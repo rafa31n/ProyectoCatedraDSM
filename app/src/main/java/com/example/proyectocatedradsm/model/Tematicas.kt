@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import com.example.proyectocatedradsm.Tematica
 import com.example.proyectocatedradsm.db.HelperDB
 
 class Tematicas(context: Context?) {
@@ -58,6 +59,21 @@ class Tematicas(context: Context?) {
             TABLE_NAME_TEMATICAS,
             null,
             generarContentValues(nombre, descripcion, color)
+        )
+    }
+
+    fun updateTematica(
+        id_tematica: Int?,
+        nombre: String?,
+        descripcion: String?,
+        color: String?
+    ) {
+        db!!.update(
+            Tematicas.TABLE_NAME_TEMATICAS, generarContentValues(
+                 nombre,
+                descripcion, color
+            ),
+            "${Tematicas.COL_ID}=?", arrayOf(id_tematica.toString())
         )
     }
 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear ficha"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/labelAnverso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anverso ficha"
+        android:textSize="18sp"
+        android:layout_below="@id/textTitulo"
+        android:layout_marginBottom="2dp" />
+    <EditText
+        android:id="@+id/textAnverso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese anverso"
+        android:layout_below="@id/labelAnverso"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/labelEnverso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enverso ficha"
+        android:textSize="18sp"
+        android:layout_below="@id/textAnverso"
+        android:layout_marginBottom="2dp" />
+    <EditText
+        android:id="@+id/textEnverso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese enverso"
+        android:layout_below="@id/labelEnverso"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/labelClavesPistas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Palabras Claves / Pistas"
+        android:textSize="18sp"
+        android:layout_below="@id/textEnverso"
+        android:layout_marginBottom="2dp" />
+
+    <EditText
+        android:id="@+id/textClavesPistas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Claves / Pistas"
+        android:layout_below="@id/labelClavesPistas"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnCrearFicha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Ficha"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/textClavesPistas"
+        android:backgroundTint="@color/oxfordBlue"
+        />
+
+    <Button
+        android:id="@+id/btnCancerlarFicha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar ficha"
+        android:textSize="18sp"
+        android:layout_below="@id/btnCrearFicha"
+        android:backgroundTint="@color/charcoal"
+        />
+
+</RelativeLayout>
