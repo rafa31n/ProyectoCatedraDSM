@@ -62,9 +62,9 @@ class Tematicas(context: Context?) {
     }
 
     // Eliminar un registro
-    /*fun deleteProducto(id: Int) {
-        db!!.delete(TABLE_NAME_PRODUCTOS, "$COL_ID=?", arrayOf(id.toString()))
-    }*/
+    fun deleteTematica(id: Int) {
+        db!!.delete(TABLE_NAME_TEMATICAS, "$COL_ID=?", arrayOf(id.toString()))
+    }
 
     //Modificar un registro
     /*fun updateProducto(

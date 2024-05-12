@@ -12,12 +12,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectocatedradsm.model.Tematicas
 
 class TematicaAdapter(
     private val tematicas: MutableList<Tematica>,
     private val colorTematica: String
 ) :
     RecyclerView.Adapter<TematicaAdapter.ViewHolder>() {
+    private var managerTematicas: Tematicas? = null
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewNombre: TextView = itemView.findViewById(R.id.textViewNombre)
@@ -30,6 +32,7 @@ class TematicaAdapter(
     private val coloresTematica = HashMap<Int, String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        managerTematicas = Tematicas(parent.context)
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.tematica_view, parent, false)
         return ViewHolder(view)
@@ -66,11 +69,24 @@ class TematicaAdapter(
         }
 
         holder.btnEliminar.setOnClickListener {
-            Toast.makeText(
-                holder.itemView.context,
-                "BTN ELIMINAR.", Toast.LENGTH_SHORT
-            ).show()
+            mostrarModalEliminar(holder.itemView.context, tematica)
         }
+    }
+
+    private fun mostrarModalEliminar(context: Context, tematica: Tematica) {
+        AlertDialog.Builder(context)
+            .setTitle("Eliminar Temática")
+            .setMessage("¿Estás seguro de que quieres eliminar la temática ${tematica.nombre}?")
+            .setPositiveButton("Eliminar") { dialog, which ->
+                tematica.idTematica?.let { it1 -> managerTematicas!!.deleteTematica(it1.toInt()) }
+                tematicas.remove(tematica)
+                notifyDataSetChanged()
+            }
+            .setNegativeButton("Cancelar") { dialog, which ->
+                // No hacer nada, simplemente cerrar el diálogo
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun modalOpciones(context: Context, tematica: Tematica) {
