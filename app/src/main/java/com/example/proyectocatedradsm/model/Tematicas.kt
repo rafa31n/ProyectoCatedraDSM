@@ -63,10 +63,11 @@ class Tematicas(context: Context?) {
 
     // Eliminar una tematica
 
-    fun deleteTematica(id: Int) {
+    fun deleteTematica(id: String) {
 
-        db!!.delete(TABLE_NAME_TEMATICAS, "$COL_ID=?", arrayOf(id.toString()))
+        db!!.delete(TABLE_NAME_TEMATICAS, "$COL_ID=?", arrayOf(id))
         db!!.close()
+
     }
 
     //Modificar un registro

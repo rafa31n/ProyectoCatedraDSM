@@ -31,11 +31,6 @@ class Dashboard : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTematicas)
         managerTematicas = Tematicas(this)
 
-        managerTematicas!!.addNewTematica(
-            "SOCIALES",
-            "Descripcion para SOCIALES",
-            "#ADD8E6"
-        )*/
         //Boton
         val btnCrearTematica=findViewById<Button>(R.id.btnCrearTematica)
         btnCrearTematica.setOnClickListener {

@@ -75,7 +75,7 @@ class TematicaAdapter(
         }
     }
 
-    private fun modalOpciones(context: Context, tematica: Tematica) {
+    private fun modalOpciones(context: Context?, tematica: Tematica) {
         // Aquí puedes crear e mostrar el modal de opciones
         // Por ejemplo, puedes usar un AlertDialog
         AlertDialog.Builder(context)
@@ -84,12 +84,15 @@ class TematicaAdapter(
             .setPositiveButton("Ponerme a prueba") { dialog, which ->
                 val intent = Intent(context, EditarFichaActivity::class.java)
                 intent.putExtra("tematica_id", tematica.idTematica)
-                context.startActivity(intent)
+                context?.startActivity(intent)
             }
             .setNegativeButton("Ver fichas") { dialog, which ->
                 val intent = Intent(context, FichasActivity::class.java)
-                intent.putExtra("tematica_id", tematica.idTematica)
-                context.startActivity(intent)
+                var idTema:String
+                idTema= tematica.idTematica!!.toString()
+                intent.putExtra("tematica_id",idTema )
+                println("tematica adapter id ${tematica.idTematica}")
+                context?.startActivity(intent)
             }
             .setNeutralButton("Cancelar") { dialog, which ->
             }
@@ -112,9 +115,10 @@ class TematicaAdapter(
             .show()
     }
     private fun eliminarTematica(context: Context, tematica: Tematica) {
-       val idTematica = tematica.idTematica ?: return // Si el ID es null, retorna sin hacer nada
+       var idTema= tematica.idTematica!!.toString()// Si el ID es null, retorna sin hacer nada
      //   println("El id de tematica= $idTematica")
-       // managerTematicas!!.deleteTematica(idTematica) // Usando el operador de llamada segura
+        println("elininar id $idTema")
+      //  managerTematicas!!.deleteTematica("5")
         notifyDataSetChanged()
         Toast.makeText(context, "Temática ${tematica.nombre} eliminada.", Toast.LENGTH_SHORT).show()
     }

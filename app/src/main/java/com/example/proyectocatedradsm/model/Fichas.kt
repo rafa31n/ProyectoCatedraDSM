@@ -111,4 +111,14 @@ class Fichas(context: Context?) {
             null, null, null, null, "${Fichas.COL_ANVERSO} ASC"
         )
     }
+    fun searchFichasByTema(idTematica: String?): Cursor? {
+        val columns = arrayOf(COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_ENVERSO, COL_PISTAS)
+        val selection = "$COL_IDTEMATICA = ?"
+        val selectionArgs = arrayOf(idTematica.toString())
+        return db!!.query(
+            TABLE_NAME_FICHAS, columns,
+            selection, selectionArgs, null, null,
+            "${Fichas.COL_ANVERSO} ASC"
+        )
+    }
 }
