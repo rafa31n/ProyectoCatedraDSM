@@ -26,7 +26,7 @@ class FichasActivity : AppCompatActivity() {
         val intent = intent
         val idTematica = intent.getStringExtra("tematica_id")
        /* managerFichas!!.addNewFicha(
-            5,
+            4,
             "Descripcion para SOCIALES",
             "#ADD8E6",
             "mar"

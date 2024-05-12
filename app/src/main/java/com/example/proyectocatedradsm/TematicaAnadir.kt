@@ -1,6 +1,7 @@
 package com.example.proyectocatedradsm
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -66,6 +67,8 @@ class TematicaAnadir : AppCompatActivity() {
             descricion=txtDescripcion.text.toString()
             println( "la tematica $tematica, la des $descricion , color $selectedColor, $hexColor")
             managerTematicas!!.addNewTematica(tematica,descricion,hexColor)
+            val intent = Intent(this, Dashboard::class.java)
+            startActivity(intent)
             Toast.makeText(
                 this, "Tematica se ha guardados correctamente.",
                 Toast.LENGTH_LONG

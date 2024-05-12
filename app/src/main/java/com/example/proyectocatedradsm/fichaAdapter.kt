@@ -56,10 +56,15 @@ class fichaAdapter(
         }
 
         holder.btnEliminar.setOnClickListener {
+
+            ficha.id_ficha?.let { it1 -> managerFichas!!.deleteFicha(it1.toString()) }
+            fichas.remove(ficha)
+            notifyDataSetChanged()
             Toast.makeText(
                 holder.itemView.context,
                 "BTN ELIMINAR.", Toast.LENGTH_SHORT
             ).show()
+
 
         }
     }

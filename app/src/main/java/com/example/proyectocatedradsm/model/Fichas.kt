@@ -68,9 +68,11 @@ class Fichas(context: Context?) {
     }
 
     // Eliminar un registro
-    /*fun deleteProducto(id: Int) {
-        db!!.delete(TABLE_NAME_PRODUCTOS, "$COL_ID=?", arrayOf(id.toString()))
-    }*/
+    fun deleteFicha(id: String) {
+        db!!.delete(TABLE_NAME_FICHAS, "$COL_ID=?", arrayOf(id.toString()))
+        db!!.close()
+    }
+
 
     //Modificar un registro
     fun updateFicha(
