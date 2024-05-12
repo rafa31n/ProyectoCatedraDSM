@@ -79,9 +79,11 @@ class Fichas(context: Context?) {
     }
 
     // Eliminar un registro
-    /*fun deleteProducto(id: Int) {
-        db!!.delete(TABLE_NAME_PRODUCTOS, "$COL_ID=?", arrayOf(id.toString()))
-    }*/
+    fun deleteFicha(id: String) {
+        db!!.delete(TABLE_NAME_FICHAS, "$COL_ID=?", arrayOf(id.toString()))
+        db!!.close()
+    }
+
 
     //Modificar un registro
     fun updateFicha(
@@ -133,16 +135,6 @@ class Fichas(context: Context?) {
         return db!!.query(
             TABLE_NAME_FICHAS, columns,
             null, null, null, null, "${Fichas.COL_ANVERSO} ASC"
-        )
-    }
-
-    fun searchFichasAllForTematica(id: Int?): Cursor? {
-        val columns = arrayOf(
-            COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_ENVERSO, COL_PISTAS
-        )
-        return db!!.query(
-            TABLE_NAME_FICHAS, columns,
-            "$COL_IDTEMATICA=?", arrayOf(id.toString()), null, null, "${Fichas.COL_ID} DESC"
         )
     }
 }

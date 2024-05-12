@@ -1,6 +1,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardViewTematica"
+    android:id="@+id/cardViewFichas"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -8,26 +8,26 @@
     android:radius="8dp">
 
     <LinearLayout
-        android:id="@+id/contenedorTematica"
+        android:id="@+id/contenedorFicha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/textViewNombre"
+            android:id="@+id/textViewANVERSO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Título tematica"
+            android:text="ANVERSO"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewDescripcion"
+            android:id="@+id/textViewENVERSO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descripción del Ticket"
+            android:text="ENVERSO"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
