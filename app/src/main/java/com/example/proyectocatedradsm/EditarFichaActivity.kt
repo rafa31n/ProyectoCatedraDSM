@@ -11,11 +11,8 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.proyectocatedradsm.db.HelperDB
 import com.example.proyectocatedradsm.model.Fichas
-import com.example.proyectocatedradsm.model.Tematicas
 
 class EditarFichaActivity : AppCompatActivity() {
     //Declarar variables

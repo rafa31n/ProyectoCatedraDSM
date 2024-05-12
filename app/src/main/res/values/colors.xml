@@ -4,6 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="oxfordBlue">#011936</color>
     <color name="charcoal">#465362</color>
+    <color name="verde">#12a352</color>
+    <color name="azul">#75cff0</color>
+    <color name="rojo">#ec7953</color>
+
     <color name="backgroungLogo">#dce6fe</color>
     <color name="green">#4CAF50</color>
 </resources>

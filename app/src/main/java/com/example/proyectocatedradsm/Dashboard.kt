@@ -1,10 +1,12 @@
 package com.example.proyectocatedradsm
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -35,7 +37,14 @@ class Dashboard : AppCompatActivity() {
             "#ADD8E6"
         )*/
 
+        //Boton
+        val btnCrearTematica=findViewById<Button>(R.id.btnCrearTematica)
+        btnCrearTematica.setOnClickListener {
+            val intent = Intent(this, TematicaAnadir::class.java)
+            startActivity(intent)
+        }
         // MOSTRAR TEMATICAS
+
         val cursor = managerTematicas!!.searchTematicasAll()
         if (cursor != null && cursor.moveToFirst()) {
             val tematicas = mutableListOf<Tematica>()

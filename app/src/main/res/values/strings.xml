@@ -13,4 +13,11 @@
     <string name="ninguna_tematica">No se encontro ninguna temática.</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
+
+    <string-array name="coloresTematica">
+        <item>Rojo</item>
+        <item>Verde</item>
+        <item>azul</item>
+
+    </string-array>
 </resources>

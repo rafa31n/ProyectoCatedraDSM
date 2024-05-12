@@ -64,6 +64,13 @@ class Tematicas(context: Context?) {
     // Eliminar un registro
     fun deleteTematica(id: Int) {
         db!!.delete(TABLE_NAME_TEMATICAS, "$COL_ID=?", arrayOf(id.toString()))
+    // Eliminar una tematica
+
+    fun deleteTematica(id: String) {
+
+        db!!.delete(TABLE_NAME_TEMATICAS, "$COL_ID=?", arrayOf(id))
+        db!!.close()
+
     }
 
     //Modificar un registro
@@ -84,16 +91,16 @@ class Tematicas(context: Context?) {
     }*/
 
     // Mostrar un registro particular
-    /*fun searchProducto(id: Int): Cursor? {
+    fun searchTematica(nameTema: String): Cursor? {
         val columns = arrayOf(
-            COL_ID, COL_IDCATEGORIA, COL_DESCRIPCION, COL_PRECIO,
-            COL_CANTIDAD
+            COL_ID, COL_NOMBRE, COL_DESCRIPCION, COL_COLOR,
+
         )
         return db!!.query(
-            TABLE_NAME_PRODUCTOS, columns,
-            "$COL_ID=?", arrayOf(id.toString()), null, null, null
+            TABLE_NAME_TEMATICAS, columns,
+            "$COL_ID=?", arrayOf(nameTema.toString()), null, null, null
         )
-    }*/
+    }
 
     // Mostrar todos los registros
     fun searchTematicasAll(): Cursor? {

@@ -1,0 +1,63 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewFichas"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:radius="8dp">
+
+    <LinearLayout
+        android:id="@+id/contenedorFicha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textViewANVERSO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ANVERSO"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewENVERSO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ENVERSO"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <!-- Botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:backgroundTint="@color/charcoal"
+                android:gravity="center"
+                android:text="@string/editar"
+                app:icon="@drawable/editar" />
+
+            <Button
+                android:id="@+id/btnEliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:backgroundTint="@color/charcoal"
+                android:gravity="center"
+                android:text="@string/eliminar"
+                app:icon="@drawable/eliminar" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
