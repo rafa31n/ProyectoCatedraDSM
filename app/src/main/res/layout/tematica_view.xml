@@ -35,25 +35,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnEditar"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
                 android:backgroundTint="@color/charcoal"
+                android:gravity="center"
+                android:text="@string/editar"
                 app:icon="@drawable/editar" />
 
             <Button
                 android:id="@+id/btnEliminar"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:backgroundTint="@color/charcoal"
                 android:gravity="center"
+                android:text="@string/eliminar"
                 app:icon="@drawable/eliminar" />
         </LinearLayout>
     </LinearLayout>
