@@ -57,10 +57,10 @@ class Fichas(context: Context?) {
     }
 
     fun generarContentValuesRegistro(
-        registro: String?
+        resultado: String?
     ): ContentValues? {
         val valores = ContentValues()
-        valores.put(Fichas.COL_IDTEMATICA, registro)
+        valores.put(Fichas.COL_RESULTADO, resultado)
         return valores
     }
 
@@ -110,12 +110,12 @@ class Fichas(context: Context?) {
     }
 
     fun updateFichaResultados(
-        id_ficha: Int,
-        registros: String?
+        id_ficha: Int?,
+        resultado: String?
     ) {
         db!!.update(
             TABLE_NAME_FICHAS, generarContentValuesRegistro(
-                registros
+                resultado
             ),
             "$COL_ID=?", arrayOf(id_ficha.toString())
         )
