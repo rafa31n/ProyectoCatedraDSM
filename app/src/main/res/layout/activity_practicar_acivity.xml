@@ -42,6 +42,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:text="@string/anverso"
+        android:textAlignment="center"
         android:textSize="18sp"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="93dp" />

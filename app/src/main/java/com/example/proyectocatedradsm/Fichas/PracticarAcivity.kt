@@ -93,8 +93,10 @@ class PracticarAcivity : AppCompatActivity() {
         } else {
             Toast.makeText(
                 this,
-                "NO HAY FICHAS EN LA TEMATICA ", Toast.LENGTH_SHORT
+                "No hay fichas guardadas en esta tematica.", Toast.LENGTH_SHORT
             ).show()
+            val intent = Intent(this, Dashboard::class.java)
+            startActivity(intent)
         }
 
         Log.d("size", fichas.size.toString())
