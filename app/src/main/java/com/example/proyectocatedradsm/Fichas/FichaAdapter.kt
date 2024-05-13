@@ -26,6 +26,7 @@ class FichaAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewAnverso: TextView = itemView.findViewById(R.id.textViewANVERSO)
         val textViewReverso: TextView = itemView.findViewById(R.id.textViewENVERSO)
+        val textViewResultado: TextView = itemView.findViewById(R.id.textViewResultado)
         val cardView: CardView = itemView.findViewById(R.id.cardViewFichas)
         val btnEditar: Button = itemView.findViewById(R.id.btnEditar)
         val btnEliminar: Button = itemView.findViewById(R.id.btnEliminar)
@@ -49,6 +50,8 @@ class FichaAdapter(
         val ficha = fichas[position]
         holder.textViewAnverso.text = ficha.anverso
         holder.textViewReverso.text = ficha.reverso
+        holder.textViewResultado.text = ficha.resultado
+
 
         //Botones
         holder.btnEditar.setOnClickListener {
@@ -56,9 +59,9 @@ class FichaAdapter(
             intent.putExtra("anverso", ficha.anverso)
             intent.putExtra("reverso", ficha.reverso)
             intent.putExtra("pistas", ficha.pistas)
-
             intent.putExtra("idFicha", ficha.id_ficha.toString())
             intent.putExtra("idTematicaFicha", ficha.idTematica.toString())
+            intent.putExtra("resultado", ficha.resultado)
             holder.cardView.context.startActivity(intent)
         }
 

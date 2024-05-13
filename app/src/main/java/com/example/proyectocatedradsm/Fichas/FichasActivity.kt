@@ -30,10 +30,16 @@ class FichasActivity : AppCompatActivity() {
         val intent = intent
         val idTematica = intent.getStringExtra("tematica_id")
         val btnNuevaFicha = findViewById<Button>(R.id.btnCrearFicha)
+        val btnRegresar = findViewById<ImageButton>(R.id.btnRegresar)
 
         btnNuevaFicha.setOnClickListener {
             val intent = Intent(this, CrearFicha::class.java)
             intent.putExtra("idTematica", idTematica)
+            startActivity(intent)
+        }
+
+        btnRegresar.setOnClickListener {
+            val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
         }
 
@@ -45,6 +51,7 @@ class FichasActivity : AppCompatActivity() {
             var anverso: String = ""
             var reverso: String = ""
             var pistas: String = ""
+            var resultado: String = ""
 
             while (!cursor.isAfterLast) {
                 // Obtener datos del cursor y establecerlos en las vistas
@@ -53,6 +60,12 @@ class FichasActivity : AppCompatActivity() {
                 anverso = cursor.getString(cursor.getColumnIndex("anverso"))
                 pistas = cursor.getString(cursor.getColumnIndex("pistas"))
                 reverso = cursor.getString(cursor.getColumnIndex("reverso"))
+                resultado = cursor.getString(cursor.getColumnIndex("resultado"))
+                if (resultado.length == 0) {
+                    resultado = "Resultado: Sin evaluar"
+                } else {
+                    resultado = "Resultado: " + cursor.getString(cursor.getColumnIndex("resultado"))
+                }
 
                 val ficha =
                     Ficha(
@@ -60,7 +73,8 @@ class FichasActivity : AppCompatActivity() {
                         idTematica,
                         anverso,
                         reverso,
-                        pistas
+                        pistas,
+                        resultado
                     )
                 fichas.add(ficha)
                 cursor.moveToNext()

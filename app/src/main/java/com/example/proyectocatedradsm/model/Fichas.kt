@@ -36,7 +36,7 @@ class Fichas(context: Context?) {
                         + COL_ANVERSO + " varchar(255) NOT NULL,"
                         + COL_REVERSO + " varchar(255) NOT NULL,"
                         + COL_PISTAS + " varchar(255) NOT NULL,"
-                        + COL_RESULTADO + " integer NULL,"
+                        + COL_RESULTADO + " varchar(255) NULL,"
                         + "FOREIGN KEY(id_tematica) REFERENCES tematicas (id_tematica));"
                 )
     }
@@ -46,13 +46,15 @@ class Fichas(context: Context?) {
         id_tematica: Int?,
         anverso: String?,
         reverso: String?,
-        pistas: String?
+        pistas: String?,
+        resultado: String?
     ): ContentValues? {
         val valores = ContentValues()
         valores.put(Fichas.COL_IDTEMATICA, id_tematica)
         valores.put(Fichas.COL_ANVERSO, anverso)
         valores.put(Fichas.COL_REVERSO, reverso)
         valores.put(Fichas.COL_PISTAS, pistas)
+        valores.put(Fichas.COL_RESULTADO, resultado)
         return valores
     }
 
@@ -69,12 +71,13 @@ class Fichas(context: Context?) {
         id_tematica: Int?,
         anverso: String?,
         reverso: String?,
-        pistas: String?
+        pistas: String?,
+        resultado: String?
     ) {
         db!!.insert(
             TABLE_NAME_FICHAS,
             null,
-            generarContentValues(id_tematica, anverso, reverso, pistas)
+            generarContentValues(id_tematica, anverso, reverso, pistas, resultado)
         )
     }
 
@@ -96,14 +99,16 @@ class Fichas(context: Context?) {
         id_tematica: Int?,
         anverso: String?,
         reverso: String?,
-        pistas: String?
+        pistas: String?,
+        resultado: String?
     ) {
         db!!.update(
             TABLE_NAME_FICHAS, generarContentValues(
                 id_tematica,
                 anverso,
                 reverso,
-                pistas
+                pistas,
+                resultado
             ),
             "$COL_ID=?", arrayOf(id_ficha.toString())
         )
@@ -124,7 +129,7 @@ class Fichas(context: Context?) {
     // Mostrar todos los registros
     fun searchFichasAll(): Cursor? {
         val columns = arrayOf(
-            COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_REVERSO, COL_PISTAS
+            COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_REVERSO, COL_PISTAS, COL_RESULTADO
         )
         return db!!.query(
             TABLE_NAME_FICHAS, columns,
@@ -133,7 +138,7 @@ class Fichas(context: Context?) {
     }
 
     fun searchFichasByTema(idTematica: String?): Cursor? {
-        val columns = arrayOf(COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_REVERSO, COL_PISTAS)
+        val columns = arrayOf(COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_REVERSO, COL_PISTAS, COL_RESULTADO)
         val selection = "$COL_IDTEMATICA = ?"
         val selectionArgs = arrayOf(idTematica.toString())
         return db!!.query(

@@ -26,7 +26,7 @@ class PracticarAcivity : AppCompatActivity() {
     private var fichas: MutableList<Ficha> = mutableListOf()
     private var fichasActual: Ficha? = null
     private var resultadosPorDefecto = HashMap<String, Int>()
-    private var volveraintentar : Boolean = false
+    private var volveraintentar: Boolean = false
 
 
     @SuppressLint("Range", "MissingInflatedId")
@@ -52,6 +52,11 @@ class PracticarAcivity : AppCompatActivity() {
         val textPistas = findViewById<TextView>(R.id.textPistas)
         var linearL = findViewById<LinearLayout>(R.id.LinearLayout)
         var otravez: Boolean = false
+        val btnRegresar = findViewById<ImageButton>(R.id.btnRegresar)
+        btnRegresar.setOnClickListener {
+            val intent = Intent(this, Dashboard::class.java)
+            startActivity(intent)
+        }
 
 
         val cursor = managerFichas!!.searchFichasAllForTematica(id_tematicaContex)
@@ -76,7 +81,8 @@ class PracticarAcivity : AppCompatActivity() {
                         id_tematica,
                         anverso_text,
                         reverso_text,
-                        palabrasClave
+                        palabrasClave,
+                        ""
                     )
                 fichas.add(ficha)
                 cursor.moveToNext()
@@ -105,12 +111,9 @@ class PracticarAcivity : AppCompatActivity() {
             if (indiceActual == 0 && !otravez) {
                 indiceActual++
             }
-
-
             if (indiceActual >= fichas.size) {
                 indiceActual = 0
                 volveraintentar = true
-
             }
         }
 
@@ -122,10 +125,11 @@ class PracticarAcivity : AppCompatActivity() {
             linearL.visibility = View.GONE
             textAnverso.setText(fichasActual?.anverso)
             txtReverso.visibility = View.GONE
-
         }
 
         textFacil.setOnClickListener {
+            //Para guardar los resultados
+            capturarResultados("Fácil", fichasActual?.id_ficha)
             fichasActual = fichas[indiceActual]
             textMostrarRespuesta.visibility = View.VISIBLE
             textmostrarPistas.visibility = View.VISIBLE
@@ -133,15 +137,14 @@ class PracticarAcivity : AppCompatActivity() {
             linearL.visibility = View.GONE
             textAnverso.setText(fichasActual?.anverso)
             txtReverso.visibility = View.GONE
-            //Para guardar los resultados
-            capturarResultados("Facil", fichasActual?.id_ficha)
             indiceActual++
-
             nuevoIntento(volveraintentar)
 
         }
 
         textBien.setOnClickListener {
+            //Para guardar los resultados
+            capturarResultados("Bien", fichasActual?.id_ficha)
             fichasActual = fichas[indiceActual]
             textMostrarRespuesta.visibility = View.VISIBLE
             textmostrarPistas.visibility = View.VISIBLE
@@ -149,17 +152,13 @@ class PracticarAcivity : AppCompatActivity() {
             linearL.visibility = View.GONE
             textAnverso.setText(fichasActual?.anverso)
             txtReverso.visibility = View.GONE
-
-            //Para guardar los resultados
-            capturarResultados("Bien", fichasActual?.id_ficha)
-
             indiceActual++
-
             nuevoIntento(volveraintentar)
-
         }
 
         textDificil.setOnClickListener {
+            //Para guardar los resultados
+            capturarResultados("Dificil", fichasActual?.id_ficha)
             fichasActual = fichas[indiceActual]
             textMostrarRespuesta.visibility = View.VISIBLE
             textmostrarPistas.visibility = View.VISIBLE
@@ -167,13 +166,8 @@ class PracticarAcivity : AppCompatActivity() {
             linearL.visibility = View.GONE
             textAnverso.setText(fichasActual?.anverso)
             txtReverso.visibility = View.GONE
-            //Para guardar los resultados
-            capturarResultados("Dificil", fichasActual?.id_ficha)
-
             indiceActual++
-
             nuevoIntento(volveraintentar)
-
         }
 
         textmostrarPistas.setOnClickListener {
@@ -188,15 +182,15 @@ class PracticarAcivity : AppCompatActivity() {
         resultadosPorDefecto.put("dificil", 0)
     }
 
-    fun nuevoIntento(intento: Boolean){
+    fun nuevoIntento(intento: Boolean) {
 
-        if(intento){
+        if (intento) {
             volverAIntentar()
-            volveraintentar=false
+            volveraintentar = false
         }
     }
 
-    fun volverAIntentar(){
+    fun volverAIntentar() {
         AlertDialog.Builder(this)
             .setTitle("PONTE A PRUEBA")
             .setMessage("¿Quieres volver a intentarlo?")

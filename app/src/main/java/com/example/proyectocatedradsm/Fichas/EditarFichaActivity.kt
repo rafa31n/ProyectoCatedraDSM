@@ -43,6 +43,7 @@ class EditarFichaActivity : AppCompatActivity() {
         val anverso = intent.getStringExtra("anverso")
         val reverso = intent.getStringExtra("reverso")
         val pistas = intent.getStringExtra("pistas")
+        val resultado = intent.getStringExtra("resultado")
 
         txtAnverso.setText(anverso)
         txtReverso.setText(reverso)
@@ -56,7 +57,8 @@ class EditarFichaActivity : AppCompatActivity() {
                         idTematicaFicha.toInt(),
                         txtAnverso.text.toString(),
                         txtReverso.text.toString(),
-                        txtPista.text.toString()
+                        txtPista.text.toString(),
+                        resultado?.replace("Resultado: ", "")
                     )
                 }
                 Toast.makeText(

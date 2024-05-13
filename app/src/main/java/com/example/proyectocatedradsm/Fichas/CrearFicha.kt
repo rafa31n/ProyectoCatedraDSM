@@ -52,7 +52,8 @@ class CrearFicha : AppCompatActivity() {
                     idTematica?.toInt(),
                     txtAnverso.text.toString(),
                     txtEnverso.text.toString(),
-                    txtClavesPistas.text.toString()
+                    txtClavesPistas.text.toString(),
+                    ""
                 )
                 Toast.makeText(
                     this, "Ficha creada correctamente",
