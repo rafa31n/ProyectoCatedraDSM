@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class ModalDashboard: BottomSheetDialogFragment() {
+class ModalDashboard : BottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

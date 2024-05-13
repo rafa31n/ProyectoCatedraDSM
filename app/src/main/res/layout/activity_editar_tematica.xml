@@ -1,86 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textTitulo"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroungLogo"
+        android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:padding="8dp"
+            android:src="@drawable/baseline_arrow_circle_left_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/editarTematica"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Editar tematica"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:layout_marginTop="80dp"/>
+        android:layout_centerInParent="true"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/labelNombreTematica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre Tematica"
-        android:textSize="18sp"
-        android:layout_below="@id/textTitulo"
-        android:layout_marginBottom="2dp" />
-    <EditText
-        android:id="@+id/txtNombreTematica"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ingrese nombre"
-        android:layout_below="@id/labelNombreTematica"
-        android:layout_marginBottom="16dp" />
+        <TextView
+            android:id="@+id/labelNombreTematica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="@string/nombreTematica"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/labelDescripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descripcion de tematica"
-        android:textSize="18sp"
-        android:layout_below="@id/txtNombreTematica"
-        android:layout_marginBottom="2dp" />
+        <EditText
+            android:id="@+id/txtNombreTematica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelNombreTematica"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/ingreseNombre" />
 
-    <EditText
-        android:id="@+id/txtDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ingrese descripcion"
-        android:layout_below="@id/labelDescripcion"
-        android:layout_marginBottom="16dp" />
+        <TextView
+            android:id="@+id/labelDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtNombreTematica"
+            android:layout_marginBottom="2dp"
+            android:text="@string/descripcionTematica"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/labelColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Color de tematica"
-        android:textSize="18sp"
-        android:layout_below="@id/txtDescripcion"
-        android:layout_marginBottom="2dp" />
+        <EditText
+            android:id="@+id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelDescripcion"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/ingreseDescripcion" />
 
-    <Spinner
-        android:id="@+id/coloresCombobox"
-        android:layout_width="match_parent"
-        android:layout_below="@id/labelColor"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/labelColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtDescripcion"
+            android:layout_marginBottom="2dp"
+            android:text="@string/colorTematica"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/btnEditarTematica"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Guardar cambios"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        android:layout_below="@id/coloresCombobox"
-        android:backgroundTint="@color/oxfordBlue"
-        />
+        <Spinner
+            android:id="@+id/coloresCombobox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelColor" />
 
-    <Button
-        android:id="@+id/btnCancelEditTematica"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancelar guardado"
-        android:textSize="18sp"
-        android:layout_below="@id/btnEditarTematica"
-        android:backgroundTint="@color/charcoal"
-        />
+        <Button
+            android:id="@+id/btnEditarTematica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coloresCombobox"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/guardar_cambios"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnCancelEditTematica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnEditarTematica"
+            android:backgroundTint="@color/charcoal"
+            android:text="@string/cancelar"
+            android:textSize="18sp" />
+    </RelativeLayout>
 
 </RelativeLayout>

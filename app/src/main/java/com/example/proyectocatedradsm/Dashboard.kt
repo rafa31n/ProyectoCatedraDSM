@@ -8,11 +8,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectocatedradsm.Tematicas.Tematica
+import com.example.proyectocatedradsm.Tematicas.TematicaAdapter
+import com.example.proyectocatedradsm.Tematicas.TematicaAnadir
 import com.example.proyectocatedradsm.db.HelperDB
 import com.example.proyectocatedradsm.model.Tematicas
 
@@ -31,20 +33,14 @@ class Dashboard : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTematicas)
         managerTematicas = Tematicas(this)
 
-        /*managerTematicas!!.addNewTematica(
-            "ADWADAWDAW",
-            "Descripcion para AWDAWDAWDA",
-            "#ADD8E6"
-        )*/
-
         //Boton
         val btnCrearTematica=findViewById<Button>(R.id.btnCrearTematica)
         btnCrearTematica.setOnClickListener {
             val intent = Intent(this, TematicaAnadir::class.java)
             startActivity(intent)
         }
-        // MOSTRAR TEMATICAS
 
+        // MOSTRAR TEMATICAS
         val cursor = managerTematicas!!.searchTematicasAll()
         if (cursor != null && cursor.moveToFirst()) {
             val tematicas = mutableListOf<Tematica>()
@@ -74,17 +70,9 @@ class Dashboard : AppCompatActivity() {
             recyclerView.adapter = TematicaAdapter(tematicas, colorTematica)
             cursor.close()
         } else {
-            /*Toast.makeText(
-                this, "No se encontro ninguna temática.",
-                Toast.LENGTH_LONG
-            ).show()*/
             val txtMensaje = findViewById<TextView>(R.id.txtMensaje)
             txtMensaje.visibility = View.VISIBLE
             recyclerView.visibility = View.GONE
         }
-
-        //
-
-
     }
 }

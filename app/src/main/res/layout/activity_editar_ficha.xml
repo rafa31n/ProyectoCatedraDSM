@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Quiz Quest"
+            android:text="@string/editarFicha"
             android:textAlignment="center"
             android:textSize="24sp" />
     </RelativeLayout>
@@ -35,32 +35,55 @@
         android:layout_centerInParent="true"
         android:padding="16dp">
 
+        <TextView
+            android:id="@+id/labelAnverso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="@string/anverso"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextAnverso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/labelAnverso"
             android:layout_marginBottom="16dp"
-            android:hint="@string/anverso"
-            android:minLines="3" />
+            android:hint="@string/anverso" />
+
+        <TextView
+            android:id="@+id/labelEnverso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextAnverso"
+            android:layout_marginBottom="2dp"
+            android:text="@string/reverso"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextEnverso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editTextAnverso"
+            android:layout_below="@id/labelEnverso"
             android:layout_marginBottom="16dp"
-            android:hint="@string/enverso"
-            android:minLines="3" />
+            android:hint="@string/reverso" />
+
+        <TextView
+            android:id="@+id/labelClavesPistas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextEnverso"
+            android:layout_marginBottom="2dp"
+            android:text="@string/palabras_clave"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextPistas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editTextEnverso"
+            android:layout_below="@id/labelClavesPistas"
             android:layout_marginBottom="16dp"
-            android:hint="@string/palabras_clave"
-            android:minLines="3" />
+            android:hint="@string/palabras_clave" />
 
         <Button
             android:id="@+id/buttonGuardar"
@@ -76,8 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttonGuardar"
-            android:layout_marginTop="16dp"
             android:backgroundTint="@color/charcoal"
             android:text="@string/cancelar" />
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

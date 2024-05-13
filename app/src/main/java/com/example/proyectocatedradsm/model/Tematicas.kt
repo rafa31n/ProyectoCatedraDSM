@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import com.example.proyectocatedradsm.Tematica
 import com.example.proyectocatedradsm.db.HelperDB
 
 class Tematicas(context: Context?) {
@@ -81,10 +80,8 @@ class Tematicas(context: Context?) {
 
 
     fun deleteTematica(id: String) {
-
         db!!.delete(TABLE_NAME_TEMATICAS, "$COL_ID=?", arrayOf(id))
         db!!.close()
-
     }
 
     //Modificar un registro

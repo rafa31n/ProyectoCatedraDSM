@@ -13,10 +13,10 @@
         android:theme="@style/Theme.ProyectoCatedraDSM"
         tools:targetApi="31">
         <activity
-            android:name=".fichaAdapter"
+            android:name=".Fichas.FichaAdapter"
             android:exported="false" />
         <activity
-            android:name=".TematicaAnadir"
+            android:name=".Tematicas.TematicaAnadir"
             android:exported="false" />
         <activity
             android:name=".Dashboard"
@@ -27,28 +27,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".EditarTematicaActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".CrearFicha"
-            android:exported="false" />
-
-        <activity
-            android:name=".FichasActivity"
+            android:name=".Tematicas.EditarTematicaActivity"
             android:exported="false" />
         <activity
-            android:name=".PracticarAcivity"
+            android:name=".Fichas.CrearFicha"
             android:exported="false" />
-
         <activity
-            android:name=".EditarFichaActivity"
+            android:name=".Fichas.FichasActivity"
             android:exported="false" />
-
-
-
+        <activity
+            android:name=".Fichas.PracticarAcivity"
+            android:exported="false" />
+        <activity
+            android:name=".Fichas.EditarFichaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

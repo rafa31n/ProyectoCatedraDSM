@@ -1,4 +1,4 @@
-package com.example.proyectocatedradsm
+package com.example.proyectocatedradsm.Tematicas
 
 class Tematica {
     var idTematica: Int? = 0

@@ -5,68 +5,75 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PracticarAcivity">
+    tools:context=".Fichas.PracticarAcivity">
 
-    <TextView
-        android:id="@+id/textViewBack"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="24sp"
-        android:layout_margin="8dp"
-        android:drawableStart="@drawable/back"
-        android:clickable="true"
-        android:focusable="true"
-        />
+        android:background="@color/backgroungLogo"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/textAnverso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="F"
+        android:layout_below="@+id/headerContainer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/anverso"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="93dp"
-        android:layout_below="@+id/textViewBack"/>
+        tools:layout_editor_absoluteY="93dp" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:layout_below="@+id/textAnverso"
-        android:visibility="gone"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:padding="15dp"
+        android:visibility="gone" />
 
     <TextView
-        android:id="@+id/textEnverso"
+        android:id="@+id/textReverso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="F"
-        android:visibility="gone"
+        android:layout_below="@id/divider"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:text="@string/reverso"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="93dp"
-        android:layout_below="@id/divider" />
+        tools:layout_editor_absoluteY="93dp" />
 
     <TextView
         android:id="@+id/textPistas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="f"
-        android:visibility="gone"
+        android:layout_below="@id/textReverso"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
+        android:text="@string/palabras_clave"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="93dp"
-        android:layout_below="@id/textEnverso" />
+        tools:layout_editor_absoluteY="93dp" />
 
     <!-- LinearLayout para el TextView "Mostrar respuesta" -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
+        android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
@@ -74,73 +81,76 @@
             android:id="@+id/textMostrarPista"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mostrar pistas"
-            android:textColor="@android:color/white"
-            android:gravity="center"
             android:background="@color/facil"
-            android:paddingVertical="10dp" />
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:text="Mostrar pistas"
+            android:textColor="@android:color/white" />
+
         <TextView
             android:id="@+id/textMostrarRespuesta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mostrar respuesta"
-            android:textColor="@android:color/white"
-            android:gravity="center"
             android:background="@android:color/black"
-            android:paddingVertical="10dp" />
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:text="Mostrar respuesta"
+            android:textColor="@android:color/white" />
+
         <LinearLayout
+            android:id="@+id/LinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/LinearLayout"
-            android:orientation="horizontal" android:visibility="gone">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/textOtravez"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@color/otravez"
                 android:gravity="center"
                 android:padding="10dp"
-                android:background="@color/otravez"
-                android:textColor="@color/white"
-                android:text="Otra vez" />
+                android:text="Otra vez"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textDificil"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:padding="10dp"
+                android:layout_weight="1"
                 android:background="@color/dificl"
-                android:textColor="@color/white"
                 android:gravity="center"
-                android:text="Dificil" />
+                android:padding="10dp"
+                android:text="Dificil"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textBien"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:padding="10dp"
+                android:layout_weight="1"
                 android:background="@color/bien"
-                android:textColor="@color/white"
                 android:gravity="center"
-                android:text="Bien" />
+                android:padding="10dp"
+                android:text="Bien"
+                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textFacils"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:padding="10dp"
+                android:layout_weight="1"
                 android:background="@color/facil"
-                android:textColor="@color/white"
                 android:gravity="center"
-                android:text="Facil" />
+                android:padding="10dp"
+                android:text="Facil"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

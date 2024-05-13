@@ -5,7 +5,7 @@
     <string name="cancelar">Cancelar</string>
     <string name="palabras_clave">Palabras claves/Pistas</string>
     <string name="anverso">Anverso</string>
-    <string name="enverso">Enverso</string>
+    <string name="reverso">Reverso</string>
     <string name="opciones">Opciones</string>
     <string name="ponerme_a_prueba">Ponerme a prueba</string>
     <string name="ver_fichas">Ver fichas</string>
@@ -13,11 +13,31 @@
     <string name="ninguna_tematica">No se encontro ninguna temática.</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
+    <string name="nuevaTematica">Nueva temática</string>
+
+    <string name="agregarTematica">Agregar temática</string>
+    <string name="editarTematica">Editar temática</string>
+    <string name="nombreTematica">Nombre temática</string>
+    <string name="ingreseNombre">Ingrese nombre</string>
+    <string name="descripcionTematica">Descripcion temática</string>
+    <string name="ingreseDescripcion">Ingrese descripcion</string>
+    <string name="colorTematica">Color de temática</string>
+    <string name="ninguna_ficha">No se encontro ninguna ficha.</string>
+
+    <string name="nuevaFicha">Nueva Ficha</string>
+    <string name="crearFicha">Crear Ficha</string>
+    <string name="editarFicha">Editar Ficha</string>
+    <string name="ingresePistas">Ingrese claves/pistas</string>
+    <string name="ingreseAnverso">IIngrese anverso</string>
+    <string name="ingreseReverso">Ingrese reverso</string>
+    <string name="fichas">Fichas</string>
 
     <string-array name="coloresTematica">
-        <item>Rojo</item>
         <item>Verde</item>
-        <item>azul</item>
-
+        <item>Azul</item>
+        <item>Rojo</item>
+        <item>Morado</item>
+        <item>Vino</item>
+        <item>Gris</item>
     </string-array>
 </resources>

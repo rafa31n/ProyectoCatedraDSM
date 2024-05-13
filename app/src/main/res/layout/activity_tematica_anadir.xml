@@ -1,55 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroungLogo"
+        android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:padding="8dp"
+            android:src="@drawable/baseline_arrow_circle_left_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/agregarTematica"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/labelNombreTematica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="@string/nombreTematica"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextTematica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelNombreTematica"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/nombreTematica"
+            android:minLines="3" />
+
+        <TextView
+            android:id="@+id/labelDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextTematica"
+            android:layout_marginBottom="2dp"
+            android:text="@string/descripcionTematica"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/editTextDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelDescripcion"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/descripcionTematica"
+            android:minLines="3" />
+
+        <TextView
+            android:id="@+id/labelColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextDescripcion"
+            android:layout_marginBottom="2dp"
+            android:text="@string/colorTematica"
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/colorSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelColor" />
+
         <Button
             android:id="@+id/btnGuardarTematica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/colorSpinner"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/oxfordBlue"
+            android:backgroundTint="@color/green"
             android:text="@string/guardar_cambios" />
 
         <Button
-            android:id="@+id/buttonCancelar"
+            android:id="@+id/btnCancelarAddT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/btnGuardarTematica"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/charcoal"
             android:text="@string/cancelar" />
-
-
     </RelativeLayout>
-
-    <EditText
-        android:id="@+id/editTextTematica"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Tematica"
-        android:minLines="3" />
-
-    <EditText
-        android:id="@+id/editTextDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/relativeLayout"
-        android:layout_marginBottom="76dp"
-        android:hint="Descripcion materia"
-        android:minLines="3" />
-
 </RelativeLayout>

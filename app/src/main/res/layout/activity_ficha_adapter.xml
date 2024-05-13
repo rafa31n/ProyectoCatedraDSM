@@ -18,7 +18,7 @@
             android:id="@+id/textViewANVERSO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ANVERSO"
+            android:text="@string/anverso"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
             android:id="@+id/textViewENVERSO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ENVERSO"
+            android:text="@string/reverso"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 

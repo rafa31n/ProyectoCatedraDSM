@@ -23,9 +23,9 @@ class Fichas(context: Context?) {
         val COL_ID = "id_ficha"
         val COL_IDTEMATICA = "id_tematica"
         val COL_ANVERSO = "anverso"
-        val COL_ENVERSO = "enverso"
+        val COL_REVERSO = "reverso"
         val COL_PISTAS = "pistas"
-        val COL_REGISTRO = "resultados"
+        val COL_RESULTADO = "resultado"
 
 
         //sentencia SQL para crear la tabla.
@@ -34,9 +34,9 @@ class Fichas(context: Context?) {
                         + COL_ID + " integer primary key autoincrement,"
                         + COL_IDTEMATICA + " integer NOT NULL,"
                         + COL_ANVERSO + " varchar(255) NOT NULL,"
-                        + COL_ENVERSO + " varchar(255) NOT NULL,"
+                        + COL_REVERSO + " varchar(255) NOT NULL,"
                         + COL_PISTAS + " varchar(255) NOT NULL,"
-                        + COL_REGISTRO +" varchar(255) NULL,"
+                        + COL_RESULTADO + " integer NULL,"
                         + "FOREIGN KEY(id_tematica) REFERENCES tematicas (id_tematica));"
                 )
     }
@@ -45,13 +45,13 @@ class Fichas(context: Context?) {
     fun generarContentValues(
         id_tematica: Int?,
         anverso: String?,
-        enverso: String?,
+        reverso: String?,
         pistas: String?
     ): ContentValues? {
         val valores = ContentValues()
         valores.put(Fichas.COL_IDTEMATICA, id_tematica)
         valores.put(Fichas.COL_ANVERSO, anverso)
-        valores.put(Fichas.COL_ENVERSO, enverso)
+        valores.put(Fichas.COL_REVERSO, reverso)
         valores.put(Fichas.COL_PISTAS, pistas)
         return valores
     }
@@ -68,35 +68,42 @@ class Fichas(context: Context?) {
     fun addNewFicha(
         id_tematica: Int?,
         anverso: String?,
-        enverso: String?,
+        reverso: String?,
         pistas: String?
     ) {
         db!!.insert(
             TABLE_NAME_FICHAS,
             null,
-            generarContentValues(id_tematica, anverso, enverso, pistas)
+            generarContentValues(id_tematica, anverso, reverso, pistas)
         )
     }
 
     // Eliminar un registro
     fun deleteFicha(id: String) {
-        db!!.delete(TABLE_NAME_FICHAS, "$COL_ID=?", arrayOf(id.toString()))
+        db!!.delete(TABLE_NAME_FICHAS, "$COL_ID=?", arrayOf(id))
         db!!.close()
     }
 
+    // Eliminar todas las fichas de una tematica
+    fun eliminarFichasTematica(id: Int) {
+        db!!.delete(TABLE_NAME_FICHAS, "$COL_IDTEMATICA=?", arrayOf(id.toString()))
+        db!!.close()
+    }
 
     //Modificar un registro
     fun updateFicha(
         id_ficha: Int,
         id_tematica: Int?,
         anverso: String?,
-        enverso: String?,
+        reverso: String?,
         pistas: String?
     ) {
         db!!.update(
             TABLE_NAME_FICHAS, generarContentValues(
-                id_tematica, anverso,
-                enverso, pistas
+                id_tematica,
+                anverso,
+                reverso,
+                pistas
             ),
             "$COL_ID=?", arrayOf(id_ficha.toString())
         )
@@ -105,7 +112,6 @@ class Fichas(context: Context?) {
     fun updateFichaResultados(
         id_ficha: Int,
         registros: String?
-
     ) {
         db!!.update(
             TABLE_NAME_FICHAS, generarContentValuesRegistro(
@@ -115,26 +121,38 @@ class Fichas(context: Context?) {
         )
     }
 
-    // Mostrar un registro particular
-    /*fun searchProducto(id: Int): Cursor? {
-        val columns = arrayOf(
-            COL_ID, COL_IDCATEGORIA, COL_DESCRIPCION, COL_PRECIO,
-            COL_CANTIDAD
-        )
-        return db!!.query(
-            TABLE_NAME_PRODUCTOS, columns,
-            "$COL_ID=?", arrayOf(id.toString()), null, null, null
-        )
-    }*/
-
     // Mostrar todos los registros
     fun searchFichasAll(): Cursor? {
         val columns = arrayOf(
-            COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_ENVERSO, COL_PISTAS
+            COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_REVERSO, COL_PISTAS
         )
         return db!!.query(
             TABLE_NAME_FICHAS, columns,
             null, null, null, null, "${Fichas.COL_ANVERSO} ASC"
         )
     }
+
+    fun searchFichasByTema(idTematica: String?): Cursor? {
+        val columns = arrayOf(COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_REVERSO, COL_PISTAS)
+        val selection = "$COL_IDTEMATICA = ?"
+        val selectionArgs = arrayOf(idTematica.toString())
+        return db!!.query(
+            TABLE_NAME_FICHAS, columns,
+            selection, selectionArgs, null, null,
+            "${Fichas.COL_ANVERSO} ASC"
+        )
+    }
+
+    fun searchFichasAllForTematica(id: Int?): Cursor? {
+        val columns = arrayOf(
+            COL_ID, COL_IDTEMATICA, COL_ANVERSO, COL_REVERSO, COL_PISTAS
+        )
+        return db!!.query(
+            TABLE_NAME_FICHAS, columns,
+            "$COL_IDTEMATICA=?",
+            arrayOf(id.toString()), null, null,
+            "${Fichas.COL_ID} DESC"
+        )
+    }
+
 }
